@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/abdul/OneDrive/Desktop/PYTHON/mlops%20project/mlruns/0/946f13c60ad3468f831e6bad32b9b3f0/artifacts
+end_time: 1750340781298
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 946f13c60ad3468f831e6bad32b9b3f0
+run_name: selective-swan-348
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750340781267
+status: 4
+tags: []
+user_id: abdul
