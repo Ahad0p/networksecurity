@@ -36,20 +36,28 @@ class ModelTrainer:
         except Exception as e:
             raise NetworkSecurityException(e,sys)
         
-    def track_mlflow(self,best_model,classificationmetric):
+    def track_mlflow(self, best_model, classificationmetric):
         with mlflow.start_run():
-            f1_score=classificationmetric.f1_score
-            precision_score=classificationmetric.precision_score
-            recall_score=classificationmetric.recall_score
+            f1_score = classificationmetric.f1_score
+            precision_score = classificationmetric.precision_score
+            recall_score = classificationmetric.recall_score
 
-            mlflow.log_metric("f1_score",f1_score)
-            mlflow.log_metric("precision",precision_score)
-            mlflow.log_metric("recall_score",recall_score)
-            # Save the model
-            joblib.dump(best_model, 'model.pkl')
+            # Log metrics
+            mlflow.log_metric("f1_score", f1_score)
+            mlflow.log_metric("precision", precision_score)
+            mlflow.log_metric("recall_score", recall_score)
 
-            # Load it later
-            loaded_model = joblib.load('model.pkl')
+            # Save model to final_model directory
+            model_path = os.path.join("final_model", "model.pkl")
+            os.makedirs(os.path.dirname(model_path), exist_ok=True)
+            joblib.dump(best_model, model_path)
+
+            # Optional: log model as artifact to MLflow
+            mlflow.log_artifact(model_path)
+
+            # Optional: Load back to confirm
+            loaded_model = joblib.load(model_path)
+
         
     def train_model(self,x_train,y_train,x_test,y_test):
         models = {
