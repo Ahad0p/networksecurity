@@ -1,4 +1,55 @@
-venv
-.env
-test_mongodb.py
+# Python cache and compiled files
 __pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+test_mongodb.py
+
+# Virtual environments
+venv/
+.env/
+.venv/
+
+# Environment and config files
+.env
+*.env
+
+# Logs
+*.log
+logs/
+dagshub.log
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Model files and artifacts
+*.pkl
+*.joblib
+*.npy
+*.h5
+*.pt
+*.onnx
+model.pkl
+
+# ML artifacts
+Artifacts/
+final_model/
+saved_models/
+feature_store/
+datasets/
+
+# MLflow / DVC
+mlruns/
+.dvc/
+.dvcignore
+
+# FastAPI static build folders (if used)
+static/
+dist/
+
+# VS Code settings (optional)
+.vscode/
